@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Number Randomizer</title>
+<script type="text/javascript">
+  function randomize() {
+    var insert = document.getElementById('number');
+    var min = parseInt(document.forms[0].elements["min"].value);
+    var max = parseInt(document.forms[0].elements["max"].value);
+    var randomnumber = Math.floor(Math.random() * (max - min + 1) + min);
+    if (isNaN(min) || isNaN(max)) {
+      alert("You must fill in all the fields!");
+    } else {
+      insert.innerHTML = randomnumber;
+    }
+  }
+</script>
+</head>
+<body>
+<header>
+  <h1>Random Number Generator</h1>
+</header>
+<form onsubmit="randomize(); return false" action="#" name="random">
+  <label name="min">Minimum number for set</label>
+  <input name="min">
+  <br />
+  <label name="max">Maximum number for set</label>
+  <input name="max">
+  <br /><br />
+  <input type="submit" value="Randomize me!">
+  <br /><br />
+  <div>My random number is: <strong id="number"></strong></div>
+</form>
+</body>
+</html>
